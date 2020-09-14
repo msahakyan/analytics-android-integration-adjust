@@ -1,7 +1,21 @@
 package com.segment.analytics.android.integrations.adjust;
 
+import static com.segment.analytics.Analytics.LogLevel.NONE;
+import static com.segment.analytics.Analytics.LogLevel.VERBOSE;
+import static com.segment.analytics.Utils.createTraits;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyBoolean;
+import static org.mockito.Matchers.anyDouble;
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.initMocks;
+
 import android.app.Activity;
 import android.app.Application;
+
 import com.adjust.sdk.Adjust;
 import com.adjust.sdk.AdjustAttribution;
 import com.adjust.sdk.AdjustConfig;
@@ -16,8 +30,9 @@ import com.segment.analytics.ValueMap;
 import com.segment.analytics.android.integrations.adjust.AdjustIntegration.SegmentAttributionChangedListener;
 import com.segment.analytics.core.tests.BuildConfig;
 import com.segment.analytics.integrations.Logger;
-import com.segment.analytics.test.TrackPayloadBuilder;
 import com.segment.analytics.test.IdentifyPayloadBuilder;
+import com.segment.analytics.test.TrackPayloadBuilder;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -29,18 +44,6 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.rule.PowerMockRule;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
-
-import static com.segment.analytics.Analytics.LogLevel.NONE;
-import static com.segment.analytics.Analytics.LogLevel.VERBOSE;
-import static com.segment.analytics.Utils.createTraits;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyBoolean;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 18, manifest = Config.NONE)
